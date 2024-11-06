@@ -37,10 +37,10 @@ int menue() {
 	int option = 0;
 
 	std::cout << "Menue" << std::endl;
-	std::cout << "(1) - Dispaly List" << std::endl;
-	std::cout << "(2) - Add Entry" << std::endl;
-	std::cout << "(3) - Remove Entry" << std::endl;
-	std::cout << "(4) - Exit" << std::endl;
+	std::cout << "(1) - List anzeigen" << std::endl;
+	std::cout << "(2) - Eintrag hinzuf\x81gen" << std::endl;
+	std::cout << "(3) - Eintrag entfernen" << std::endl;
+	std::cout << "(4) - Beenden" << std::endl;
 	std::cout << std::endl;
 	
 	std::cin >> option;
@@ -50,13 +50,17 @@ int menue() {
 
 void displayList(std::vector<std::string> list) {
 	system("cls");
+	
 	int index = 0;
 	std::cout << "[Index]\t-\t[Eintrag]" << std::endl;
+	
 	for (std::string entry : list) {
 		std::cout << "(" << index << ")\t-\t " << entry << std::endl;
 		index++;
 	}
+	
 	std::cout << std::endl;
+	
 	system("pause");
 }
 
