@@ -2,7 +2,9 @@
 #include <iostream>
 #include <string>
 
-int menue();
+#include "backup.cpp"
+
+int drawMenue();
 void displayList(std::vector<std::string> list);
 std::vector<std::string> addEntry(std::vector<std::string> list);
 std::vector<std::string> removeEntry(std::vector<std::string> list);
@@ -10,8 +12,10 @@ std::vector<std::string> removeEntry(std::vector<std::string> list);
 std::vector<std::string> todoList = { "Object 1", "Object 2" };
 
 int main() {
-	while (true) {
-		int option = menue();
+	bool running = true;
+	
+	while (running) {
+		int option = drawMenue();
 
 		switch (option) {
 		case 1:
@@ -24,23 +28,28 @@ int main() {
 			todoList = removeEntry(todoList);
 			break;
 		case 4:
+			loadBackupMenue(todoList);
+		case 5:
 			return false;
 			break;
 		default:
 			break;
 		}
 	}
+	return 0;
 }
 
-int menue() {
+int drawMenue() {
 	system("cls");
 	int option = 0;
 
-	std::cout << "Menue" << std::endl;
-	std::cout << "(1) - List anzeigen" << std::endl;
-	std::cout << "(2) - Eintrag hinzuf\x81gen" << std::endl;
-	std::cout << "(3) - Eintrag entfernen" << std::endl;
-	std::cout << "(4) - Beenden" << std::endl;
+	std::cout << "| Menue" << std::endl; 
+	std::cout << "|--------------------------------" << std::endl;
+	std::cout << "|  (1) - List anzeigen" << std::endl;
+	std::cout << "|  (2) - Eintrag hinzuf\x81gen" << std::endl;
+	std::cout << "|  (3) - Eintrag entfernen" << std::endl;
+	std::cout << "|  (4) - Backup Menü" << std::endl;
+	std::cout << "|  (5) - Beenden" << std::endl;
 	std::cout << std::endl;
 	
 	std::cin >> option;
