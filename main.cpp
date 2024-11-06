@@ -51,8 +51,9 @@ int menue() {
 void displayList(std::vector<std::string> list) {
 	system("cls");
 	int index = 0;
+	std::cout << "[Index]\t-\t[Eintrag]" << std::endl;
 	for (std::string entry : list) {
-		std::cout << "(" << index << ") - " << entry << std::endl;
+		std::cout << "(" << index << ")\t-\t " << entry << std::endl;
 		index++;
 	}
 	std::cout << std::endl;
@@ -84,13 +85,14 @@ std::vector<std::string> removeEntry(std::vector<std::string> list) {
 	std::cout << "(-) Entfernen" << std::endl;
 	std::cout << std::endl;
 	
+	std::cout << "[Index]\t-\t[Eintrag]" << std::endl;
 	for(std::string entry : list) {
-		std::cout << "(" << index << ") - " << entry << std::endl;
+		std::cout << "(" << index << ")\t-\t " << entry << std::endl;
 		index++;
 	}
 	
 	std::cout << std::endl;
-	std::cout << "(-) Welcher eintrag soll entfernt werden (Index Nummer)" << std::endl;
+	std::cout << "(-) Welcher eintrag soll entfernt werden \nIndex Nummer: ";
 	std::cin >> index;
 	
 	list.erase(std::next(list.begin(), index-1));
