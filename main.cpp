@@ -12,6 +12,7 @@ std::vector<std::string> removeEntry(std::vector<std::string> list);
 std::vector<std::string> todoList = { "Object 1", "Object 2" };
 
 int main() {
+	Backup backup;
 	bool running = true;
 	
 	while (running) {
@@ -28,7 +29,9 @@ int main() {
 			todoList = removeEntry(todoList);
 			break;
 		case 4:
-			loadBackupMenue(todoList);
+			//backup.loadBackupMenue(todoList);
+			backup.testFunc();
+			break;
 		case 5:
 			return false;
 			break;
